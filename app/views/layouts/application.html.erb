@@ -9,15 +9,27 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-faded">
+    <div class="container">
+    <nav class="navbar navbar-light bg-faded container">
       <a class="navbar-brand" href="/">Coder Chat</a>
       <ul class="nav navbar-nav">
+      <% if signed_in? %>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_path, class: 'nav-link' %>
+          <%= link_to "Log Out", logout_path, class: 'nav-link', method: 'delete' %>
         </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign Up", signup_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign In", login_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       </ul>
     </nav>
-    <div class="container">
+    <% if flash.any? %>
+      <%= flash_messages(flash) %>
+    <% end %>
       <%= yield %>
     </div>
   </body>
