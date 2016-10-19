@@ -4,7 +4,7 @@
 
 Submitted by: **Tao Nhu**
 
-Time spent: **8** hours - counting (TODO)
+Time spent: **10** hours - counting (TODO)
 
 URL: **Insert your Heroku URL here**
 

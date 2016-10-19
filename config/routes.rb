@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+  get 'messages/show'
+
   root "users#index"
-  resources :users
+  resources :users do 
+    resources :messages
+  end
+
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
   post 'sessions/create', as: :submit_login
+
+  resources :messages do
+    collection do
+      get :sent
+      get :received
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
