@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find params[:id]
-    if @message.unread? && current_user == @message.recipient
+    if Message.unread? && current_user == @message.recipient
       @message.mark_as_read!
     end
   end

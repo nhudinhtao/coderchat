@@ -1,2 +1,5 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<h1>Reading Message</h1>
+
+<p>Your message from: <%= @message.sender.email %></p>
+<p>Your content: <%= @message.body %></p>
+

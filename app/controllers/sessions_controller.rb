@@ -12,9 +12,11 @@ class SessionsController < ApplicationController
         redirect_to root_path
       else
         flash.now[:error] = 'Incorrect password.'
+        render 'new'
       end
     else
       flash.now[:error] = 'User not found.'
+      render 'new'
     end
   end
 

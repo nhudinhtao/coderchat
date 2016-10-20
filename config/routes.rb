@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'friends/new'
+
+  get 'friends/create'
+
+  get 'friends/destroy'
+
   get 'messages/show'
 
   root "messages#index"

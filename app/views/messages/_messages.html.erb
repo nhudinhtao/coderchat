@@ -6,16 +6,27 @@
       <th>Body</th>
       <th>Read at</th>
       <th>Created at</th>
+      <th>To Read</th>
     </tr>
   </thead>
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td><%= message.sender.email %></td>
-        <td><%= message.recipient.email %></td>
-        <td><%= message.body %></td>
-        <td><%= message.read_at %></td>
-        <td><%= time_ago_in_words message.created_at %></td>
+        <% if message.read? %>
+          <td><%= message.sender.email %></td>
+          <td><%= message.recipient.email %></td>
+          <td><%= message.body %></td>
+          <td><%= message.read_at %></td>
+          <td><%= time_ago_in_words message.created_at %></strong></td>
+        <% else %>
+          <td><strong><%= message.sender.email %></strong></td>
+          <td><strong><%= message.recipient.email %></strong></td>
+          <td><strong><%= message.body %></strong></td>
+          <td><strong><%= message.read_at %></strong></td>
+          <td><strong><%= time_ago_in_words message.created_at %></strong></td>
+        <% end %>
+        
+        <td><%= link_to "Read", user_message_path(:user_id => @user.id, :id => message.id), class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
