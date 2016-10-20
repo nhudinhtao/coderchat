@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'messages/show'
 
-  root "users#index"
+  root "messages#index"
   resources :users do 
     resources :messages
   end

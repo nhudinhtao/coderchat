@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
 
   def index
-    @user = @current_user
-    @messages = @user.received_messages
+    @users = User.all
   end
 
   def new
