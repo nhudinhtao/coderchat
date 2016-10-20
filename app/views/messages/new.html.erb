@@ -1,0 +1,17 @@
+<%= form_for [@user, @message] do |f|%>
+  <div class="form-group">
+    <%= f.label :recipient_id %>
+    <%= f.select :recipient_id, @users.map{|u| [u.email, u.id]}  , {},  {required: 'true', autofocus: 'true', class: 'form-control'}  %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :body %>
+    <div class="half-width">
+      <%= f.text_field :body, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+        <%= f.submit 'Send' , class: 'btn btn-block btn-info' %>
+  </div>
+<% end %>

@@ -4,11 +4,19 @@ class MessagesController < ApplicationController
     received
   end
 
+  def new
+    load_user
+    @message = Message.new
+    @users = User.all
+  end
+
   def create
-    @user = User.find params[:user_id]
-    @message = User.sent_messages.build message_params
+    load_user
+    @message = @user.sent_messages.build message_params
     if @message.save
+      redirect_to sent_messages_path
     else
+      render 'new'
     end
   end
 
@@ -40,6 +48,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).require(:recipient_id, :body)
+    params.require(:message).permit(:recipient_id, :body)
   end
 end
