@@ -6,7 +6,7 @@ Submitted by: **Tao Nhu**
 
 Time spent: **15** hours - counting (TODO)
 
-URL: **Insert your Heroku URL here**
+URL: **https://limitless-journey-61589.herokuapp.com/**
 
 ## User Stories
 
