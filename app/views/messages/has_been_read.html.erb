@@ -1,4 +1,4 @@
-<h1>Messaged have been read:</h1>
+<h1>Messages have been read:</h1>
 
 <table class="table">
   <thead class="thead thead-default">
@@ -13,11 +13,13 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td><%= message.sender.email %></td>
-        <td><%= message.recipient.email %></td>
-        <td><%= message.body %></td>
-        <td><%= message.read_at %></td>
-        <td><%= time_ago_in_words message.created_at %></strong></td>
+        <% if message.read? %>
+          <td><%= message.sender.email %></td>
+          <td><%= message.recipient.email %></td>
+          <td><%= message.body %></td>
+          <td><%= message.read_at %></td>
+          <td><%= time_ago_in_words message.created_at %></strong></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
