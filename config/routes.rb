@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "messages#index"
   resources :users do 
     resources :messages
+    resources :friends
   end
 
   get 'signup' => 'users#new'
@@ -23,5 +24,7 @@ Rails.application.routes.draw do
       get :received
     end
   end
+
+  resources :friends
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,23 @@
+<h1>Friends</h1>
+
+<table class="table">
+  <thead class="thead thead-default">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.phone %></td>
+        <td><%= friend.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
