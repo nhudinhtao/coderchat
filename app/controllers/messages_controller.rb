@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   before_action :require_login, except: [:new]
 
+  def has_been_read
+    received
+  end
+
   def index
     received
   end

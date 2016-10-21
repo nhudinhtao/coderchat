@@ -3,7 +3,6 @@
     <tr>
       <th>Sender</th>
       <th>Recipient</th>
-      <th>Body</th>
       <th>Read at</th>
       <th>Created at</th>
       <% unless current_page?(sent_messages_path) %>
@@ -17,20 +16,18 @@
         <% if message.read? %>
           <td><%= message.sender.email %></td>
           <td><%= message.recipient.email %></td>
-          <td><%= message.body %></td>
           <td><%= message.read_at %></td>
           <td><%= time_ago_in_words message.created_at %></strong></td>
         <% else %>
           <td><strong><%= message.sender.email %></strong></td>
           <td><strong><%= message.recipient.email %></strong></td>
-          <td><strong><%= message.body %></strong></td>
           <td><strong>Un Read</strong></td>
           <td><strong><%= time_ago_in_words message.created_at %></strong></td>
-        <% end %>
-        
-        <% unless current_page?(sent_messages_path) %>
+          <% unless current_page?(sent_messages_path) %>
           <td><%= link_to "Read", user_message_path(:user_id => @user.id, :id => message.id), class: 'btn btn-primary' %></td>
         <% end %>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>

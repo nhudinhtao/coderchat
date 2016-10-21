@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     collection do
       get :sent
       get :received
+      get :has_been_read
     end
   end
 
