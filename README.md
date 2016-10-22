@@ -4,7 +4,7 @@
 
 Submitted by: **Tao Nhu**
 
-Time spent: **18** hours - counting (TODO)
+Time spent: **20** hours - counting (TODO)
 
 URL: **https://limitless-journey-61589.herokuapp.com/**
 
