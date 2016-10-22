@@ -22,7 +22,11 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     email = auth[:info][:email] || "#{auth[:uid]}@facebook.com"
+    name = auth[:info][:name] || email
+    password = auth[:uid]
     user = where(email: email).first_or_initialize
-    user.save && user
+    user.name = name
+    user.password = password
+    user.save! && user
   end
 end
