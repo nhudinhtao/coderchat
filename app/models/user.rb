@@ -29,4 +29,8 @@ class User < ApplicationRecord
     user.password = password
     user.save! && user
   end
+
+  def contact_info
+    "#{name} <#{email}>"
+  end
 end
